@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from '_formhelper.html' import render_field %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+<header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">APP</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href=" {{ url_for('index') }}">Home</a>
+            <a class="nav-link active" href="#">Log In</a>
+            <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
+          </nav>
+        </div>
+      </header>
+    <h1 class="mb-4"> Please Log In</h1>
+     <form method="POST" action="/login">
+            {{ form.csrf_token }}
+            {{ render_field(form.username, placeholder=form.username.label.text) }}
+            {{ render_field(form.password, placeholder=form.password.label.text) }}
+            <button type="sumbit" class="btn btn-secondary btn-lg mt-4">Log In</button>
+        </form>
+        {% if error %}
+            <p class="error mt-5 text-danger"> <strong>{{ error }} </strong></p> 
+        {% endif %}
+
+
+
+{% endblock %}

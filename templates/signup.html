@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% from '_formhelper.html' import render_field %}
+
+{% block body %}
+<header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">APP</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href=" {{ url_for('index') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+            <a class="nav-link active" href="#">Sign Up</a>
+          </nav>
+        </div>
+      </header>
+    <h1 class="mb-4"> Sign Up Here</h1>
+    <h3>Credentials:</h3>
+    <p class="text-primary">Username & Password: Must be atleast 4 characters long</p>
+    <p class="text-primary">Email: Must be a valid Email adress</p>
+    
+    <form method="POST" action="/signup">
+        {{ form.csrf_token }}
+        {{ render_field(form.username, placeholder=form.username.label.text) }}
+        {{ render_field(form.email, placeholder=form.email.label.text) }}
+        {{ render_field(form.password, placeholder=form.password.label.text) }}
+        <button type="sumbit" class="btn btn-secondary btn-lg mt-4">Sign Up</button>
+    </form>
+    
+    
+
+{% endblock %}
