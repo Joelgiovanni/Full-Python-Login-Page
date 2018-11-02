@@ -8,7 +8,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'WFSEDGFHF#$%^%$#@#$%$#@#$#@#ERGF'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/joelgodoy/Desktop/login-pages/social2/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/joelgodoy/Desktop/flask/login-pages/social2/database.db'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
